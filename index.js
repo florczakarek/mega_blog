@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import userRouter from './routes/user.js';
 import blogRouter from './routes/blog.js';
 import { connectToMongo } from './db/connection.js';
@@ -8,7 +9,11 @@ import { notFoundMiddleware } from './middlewares/notFound.js';
 
 const app = express();
 dotenv.config();
-
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  })
+);
 app.use(express.json());
 app.use('/api', userRouter);
 app.use('/api/blogs', blogRouter);

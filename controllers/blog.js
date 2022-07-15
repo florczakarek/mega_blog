@@ -24,7 +24,7 @@ export const addBlog = async (req, res, next) => {
   });
 
   try {
-    newBlog.save();
+    await newBlog.save();
   } catch (error) {
     console.log(error);
   }
@@ -66,7 +66,7 @@ export const deleteBlog = async (req, res, next) => {
   const id = req.params.id;
   let blog;
   try {
-    blog = await Blog.findByIdAndUpdate(id);
+    blog = await Blog.findByIdAndDelete(id);
   } catch (error) {
     console.log(error);
   }
