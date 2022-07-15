@@ -1,18 +1,43 @@
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
-
+import { useSelector } from 'react-redux';
 export const Header = () => {
+  const isLoggedIn = useSelector((state) => state.loggedIn);
+
   return (
     <header className='header'>
       <nav className='nav'>
         <Logo />
       </nav>
-      <ul className='feed'>
-        <li>Blogs</li>
-        <li>Add Blog</li>
-      </ul>
+      {isLoggedIn && (
+        <ul className='feed'>
+          <li>
+            <Link to='/blogs'>Blogs</Link>
+          </li>
+
+          <li>
+            <Link to='/blogs/add'>Add Blog</Link>
+          </li>
+        </ul>
+      )}
+
       <div className='btns'>
-        <button className='login-btn'>Login</button>
-        <button className='login-btn right'>Register</button>
+        {!isLoggedIn && (
+          <>
+            <Link to='/register'>
+              <button className='login-btn'>Login</button>
+            </Link>
+            <Link to='/register'>
+              <button className='login-btn right'>Register</button>
+            </Link>
+          </>
+        )}
+
+        {isLoggedIn && (
+          <Link to='/register'>
+            <button className='login-btn right'>Logout</button>
+          </Link>
+        )}
       </div>
     </header>
   );

@@ -1,3 +1,9 @@
+import { AddForm } from '../components/AddForm';
+
 export const AddBlog = () => {
-  return <div>AddBlog</div>;
+  return (
+    <div>
+      <AddForm />
+    </div>
+  );
 };

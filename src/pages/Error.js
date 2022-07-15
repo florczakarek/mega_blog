@@ -4,7 +4,7 @@ import notFound from '../assets/images/undraw_page_not_found_re_e9o6.svg';
 export const Error = () => {
   return (
     <section>
-      <div>
+      <div className='error'>
         <img src={notFound} alt='404' />
         <h3>Page not found...</h3>
         <Link to='/landing'>
