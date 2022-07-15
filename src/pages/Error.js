@@ -7,7 +7,9 @@ export const Error = () => {
       <div>
         <img src={notFound} alt='404' />
         <h3>Page not found...</h3>
-        <Link to='/'>Back home</Link>
+        <Link to='/landing'>
+          <button className='login-btn'>Back home</button>
+        </Link>
       </div>
     </section>
   );

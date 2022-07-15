@@ -5,9 +5,6 @@ import { Logo } from '../components';
 export const Landing = () => {
   return (
     <main>
-      <nav>
-        <Logo />
-      </nav>
       <div className='wrapper'>
         <div className='info'>
           <h2>
@@ -18,10 +15,10 @@ export const Landing = () => {
             with Mega Blog. Stay in touch with the people all over the world
           </p>
           <Link to='/register'>
-            <button>Login/Register</button>
+            <button className='login-btn'>Login/Register</button>
           </Link>
         </div>
-        <div>
+        <div className='landing_right'>
           <img src={main} alt='add your blog' />
         </div>
       </div>
