@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
 
 export const connectToMongo = (url) => {
-  return mongoose.createConnection();
+  return mongoose.connect(url);
 };
